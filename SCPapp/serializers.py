@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from . models import File,Interview,User,CommentsPYQ,CommentsExp
+from . models import File,Interview,User,CommentsPYQ,CommentsExp,emailVerify
 from rest_framework_jwt.settings import api_settings
 
 class FileSerializer(serializers.ModelSerializer):
@@ -10,6 +10,11 @@ class FileSerializer(serializers.ModelSerializer):
 class interviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Interview
+        fields = "__all__"
+
+class emailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = emailVerify
         fields = "__all__"
 
 
@@ -36,6 +41,7 @@ class UserSerializerWithToken(serializers.ModelSerializer):
     def create(self, validated_data):
         password = validated_data.pop('password', None)
         instance = self.Meta.model(**validated_data)
+        instance.role='Student'
         if password is not None:
             instance.set_password(password)
         instance.save()
