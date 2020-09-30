@@ -3478,3 +3478,72 @@ ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or googl
 2020-09-23 17:45:26,519 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/test/SCP-backened/MockSchedularApp/views.py changed, reloading.
 2020-09-23 17:47:31,375 INFO     [views.py:83] Trying: GET: Interview Exp Data
 2020-09-23 17:47:31,381 INFO     [views.py:86] Successful: GET: Interview Exp Data
+2020-09-30 05:36:45,282 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/serializers.py changed, reloading.
+2020-09-30 05:38:18,127 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/views.py changed, reloading.
+2020-09-30 05:38:55,434 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/views.py changed, reloading.
+2020-09-30 05:40:35,680 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/views.py changed, reloading.
+2020-09-30 05:41:13,389 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/views.py changed, reloading.
+2020-09-30 05:43:18,242 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCP/urls.py changed, reloading.
+2020-09-30 05:44:16,61 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCP/urls.py changed, reloading.
+2020-09-30 05:57:06,504 WARNING  [log.py:230] Unauthorized: /confirmEmailID/
+2020-09-30 05:57:41,629 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/views.py changed, reloading.
+2020-09-30 05:58:11,153 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/views.py changed, reloading.
+2020-09-30 05:58:19,327 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/views.py changed, reloading.
+2020-09-30 06:01:11,595 ERROR    [log.py:230] Internal Server Error: /confirmEmailID/
+Traceback (most recent call last):
+  File "/home/sravya/.local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/sravya/.local/lib/python3.6/site-packages/django/core/handlers/base.py", line 202, in _get_response
+    response = response.render()
+  File "/home/sravya/.local/lib/python3.6/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/sravya/.local/lib/python3.6/site-packages/rest_framework/response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/home/sravya/.local/lib/python3.6/site-packages/rest_framework/renderers.py", line 103, in render
+    allow_nan=not self.strict, separators=separators
+  File "/home/sravya/.local/lib/python3.6/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+  File "/usr/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/sravya/.local/lib/python3.6/site-packages/rest_framework/utils/encoders.py", line 67, in default
+    return super().default(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'property' is not JSON serializable
+2020-09-30 06:03:20,603 ERROR    [log.py:230] Internal Server Error: /verifyEmailID/
+Traceback (most recent call last):
+  File "/home/sravya/.local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/sravya/.local/lib/python3.6/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sravya/.local/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/sravya/.local/lib/python3.6/site-packages/django/views/generic/base.py", line 73, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sravya/.local/lib/python3.6/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sravya/.local/lib/python3.6/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sravya/.local/lib/python3.6/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/home/sravya/.local/lib/python3.6/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/views.py", line 68, in post
+    emailVerify = self.get_object(request.data["otp"])
+KeyError: 'otp'
+2020-09-30 06:05:12,486 WARNING  [log.py:230] Not Found: /verifyEmailID/
+2020-09-30 06:05:20,859 WARNING  [log.py:230] Method Not Allowed: /verifyEmailID/
+2020-09-30 06:17:53,108 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/serializers.py changed, reloading.
+2020-09-30 06:18:15,657 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/serializers.py changed, reloading.
+2020-09-30 06:20:58,889 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/serializers.py changed, reloading.
+2020-09-30 06:21:26,262 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/serializers.py changed, reloading.
+2020-09-30 06:23:34,414 WARNING  [log.py:230] Not Found: /token_auth/
+2020-09-30 06:25:35,899 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/views.py changed, reloading.
+2020-09-30 06:25:44,449 WARNING  [log.py:230] Not Found: /favicon.ico
+2020-09-30 06:27:13,196 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/views.py changed, reloading.
+2020-09-30 06:27:18,698 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCPapp/urls.py changed, reloading.
+2020-09-30 06:27:23,235 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/3/SCP-backened/SCP/urls.py changed, reloading.

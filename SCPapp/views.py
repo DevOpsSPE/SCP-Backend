@@ -1,18 +1,83 @@
 from rest_framework.parsers import FileUploadParser
-from .serializers import UserSerializer, UserSerializerWithToken
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions, status
 from django.http import Http404
+from django.core.mail import send_mail
+import json
+import random as r
 
-from .models import File,Interview, User, CommentsPYQ, CommentsExp
-from .serializers import FileSerializer, interviewSerializer, CommentsPYQSerializer, CommentsExpSerializer
+from .models import File,Interview, User, CommentsPYQ, CommentsExp, emailVerify
+from .serializers import FileSerializer, interviewSerializer, CommentsPYQSerializer, \
+    CommentsExpSerializer, emailSerializer, UserSerializer, UserSerializerWithToken
 
 import logging
 logging.basicConfig(filename='pyq.log',format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S',
     level=logging.INFO)
+
+"""
+email verify
+"""
+@permission_classes([permissions.AllowAny])
+def otpgen():
+    otp = ""
+    for i in range(4):
+        otp += str(r.randint(1, 9))
+    return otp
+
+
+class confirmEmailID(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def post(self, request, *args, **kwargs):
+        data=request.data
+        otp=otpgen()
+        data["otp"]=int(otp)
+        emailVerify = emailSerializer(data=data)
+        send_mail('SCP Demo', 'Hey Welcome! Your One Time Password is  ' + otp, 'iiitbemailverify@gmail.com',
+                  [request.data["email"]], fail_silently=False, )
+        if emailVerify.is_valid():
+            emailVerify.save()
+            return Response(emailVerify.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(emailSerializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get_object(self, otp):
+        try:
+            return emailVerify.objects.get(otp=otp)
+        except emailVerify.DoesNotExist:
+            raise Http404
+
+    def get(self, request, otp, format=None):
+        emailVerify = self.get_object(otp)
+        serializer = emailSerializer(emailVerify)
+        return Response(serializer.data)
+
+class verifyEmailID(APIView):
+    permission_classes = (permissions.AllowAny,)
+    def get_object(self, otp):
+        try:
+            return emailVerify.objects.get(otp=otp)
+        except emailVerify.DoesNotExist:
+            raise Http404
+
+
+    def post(self, request, *args, **kwargs):
+        emailVerify = self.get_object(request.data["otp"])
+        serializer = emailSerializer(emailVerify, data=request.data,
+                                     partial=True)
+        if serializer.is_valid():
+            emailVerify.delete()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            emailVerify.delete()
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+"""
+END - email verify
+"""
 
 """
 USER VIEWS
