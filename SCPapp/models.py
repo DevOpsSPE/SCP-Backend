@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
+from django.core.validators import FileExtensionValidator
 
 """
 USER MODEL
@@ -66,7 +67,7 @@ END OF USER MODEL
 
 #adding a comment
 class File(models.Model):
-    file = models.FileField(blank=False, null=False)
+    file = models.FileField(blank=False, null=False, validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
     author = models.CharField(max_length=141,default="Admin")
     subject = models.CharField(max_length=101)
     year = models.IntegerField()
