@@ -91,7 +91,17 @@ def current_user(request):
     serializer = UserSerializer(request.user)
     return Response(serializer.data)
 
-
+@api_view(['GET'])
+def adminVerify(request):
+    """
+    ADMIN KEY CHECK
+    """
+    serializer = UserSerializer(request.user)
+    role=serializer.data.get('role')
+    if role=='admin' and request.GET.get('adminkey')=="1234":
+        return Response(serializer.data)
+    raise Http404
+    
 class UserList(APIView):
     """
     Create a new user.
