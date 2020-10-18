@@ -11,7 +11,7 @@ class User(models.Model):
 
 
 class VideoContent(models.Model):
-    file = models.FileField(blank=False, null=False)
+    file = models.URLField(blank=False, null=False)
     subject = models.CharField(max_length=101)
     year = models.IntegerField(default=0)
     semester = models.IntegerField(default=0)

@@ -3596,3 +3596,30 @@ ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or googl
 2020-10-10 06:26:29,25 INFO     [views.py:289] Successful: GET: PYQ Data
 2020-10-10 06:26:44,350 INFO     [views.py:158] Trying: GET: Interview Exp Data
 2020-10-10 06:26:44,351 INFO     [views.py:161] Successful: GET: Interview Exp Data
+2020-10-18 14:09:44,203 WARNING  [log.py:230] Not Found: /favicon.ico
+2020-10-18 14:17:48,174 INFO     [autoreload.py:236] /home/sravya/SPEW/sem3/demo/SCP-backened/VideoModule/models.py changed, reloading.
+2020-10-18 14:31:54,736 INFO     [views.py:158] Trying: GET: Interview Exp Data
+2020-10-18 14:31:54,746 INFO     [views.py:161] Successful: GET: Interview Exp Data
+2020-10-18 15:14:31,992 INFO     [views.py:272] Trying: GET: PYQ Data
+2020-10-18 15:14:32,128 INFO     [views.py:289] Successful: GET: PYQ Data
+2020-10-18 15:14:34,718 INFO     [views.py:294] Trying: GET: PYQ by id 1
+2020-10-18 15:14:34,726 INFO     [views.py:323] Successful: GET: PYQ by id 1
+2020-10-18 15:14:34,982 INFO     [views.py:360] Trying: GET: Comments for PYQ by id 1
+2020-10-18 15:14:34,984 INFO     [views.py:364] Successful: GET: Comments for PYQ by id 1
+2020-10-18 15:15:27,725 INFO     [views.py:158] Trying: GET: Interview Exp Data
+2020-10-18 15:15:27,727 INFO     [views.py:161] Successful: GET: Interview Exp Data
+2020-10-18 15:15:54,373 INFO     [views.py:165] Trying: POST: Interview Exp Data
+2020-10-18 15:15:56,185 INFO     [views.py:175] Successful: POST: Interview Exp Data, status 201
+2020-10-18 15:15:56,344 INFO     [views.py:158] Trying: GET: Interview Exp Data
+2020-10-18 15:15:56,345 INFO     [views.py:161] Successful: GET: Interview Exp Data
+2020-10-18 15:16:15,976 INFO     [views.py:186] Trying: GET: Interview Exp by id 1
+2020-10-18 15:16:16,7 INFO     [views.py:205] Successful: GET: Interview Exp by id 1
+2020-10-18 15:16:16,59 INFO     [views.py:397] Trying: GET: Comments for Interview Exp by id 1
+2020-10-18 15:16:16,60 INFO     [views.py:401] Successful: GET: Comments for Interview Exp by id 1
+2020-10-18 15:16:23,205 INFO     [views.py:209] Trying: PATCH: Interview Exp by id 1
+2020-10-18 15:16:23,206 INFO     [views.py:186] Trying: GET: Interview Exp by id 1
+2020-10-18 15:16:23,945 INFO     [views.py:215] Successful: PATCH: Interview Exp by id 1, status 201
+2020-10-18 15:16:27,11 INFO     [views.py:158] Trying: GET: Interview Exp Data
+2020-10-18 15:16:27,12 INFO     [views.py:161] Successful: GET: Interview Exp Data
+2020-10-18 15:17:02,603 INFO     [views.py:272] Trying: GET: PYQ Data
+2020-10-18 15:17:02,604 INFO     [views.py:289] Successful: GET: PYQ Data
